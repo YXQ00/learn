@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>查找操作</title>
+		<style>
+			#firstList{
+				width: 600px;
+				list-style: none;
+				
+				position: relative;
+			}
+			li{
+				margin-bottom: 10px;
+				padding: 20px;
+				border: 2px dashed orange;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<h1>jQuery查找操作</h1>
+		<hr>
+		
+		<ul id="firstList">
+			<li>张</li>
+			<li>王</li>
+			<li>刘</li>
+			<li>马
+				<ul>
+					<li>大马</li>
+					<li>中马</li>
+					<li id="itme">小马</li>
+					<li>老马</li>
+				</ul>
+			</li>
+			<li class="itme">杨</li>
+			<li>赵</li>
+			<p>梦寐以求不过支离破碎</p>
+		</ul>
+		
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				// 查找子元素
+				// $("#firstList").children().css("border","5px solid red");
+				// 加上参数就是从#firstList的子元素中筛选出li
+				// $("#firstList").children("li").css("border","5px solid red");
+				
+				// 查找后代元素
+				// find()方法要有参数
+				// 查找#firstList后代元素中的li
+				// $("#firstList").find("li").css("border","5px solid green");
+				
+				// 查找父元素
+				// $("#itme").parent().css("background-color","pink");
+				
+				// 不加参数就是选择所有的上级元素
+				// 查找所有上级元素并进行筛选
+				// $("#itme").parents("ul").css("border","5px solid red");
+				
+				// 不加参数就是选择所有的上级元素
+				// 加上参数,筛选出body元素和#itme中间的所有元素
+				// $("#itme").parentsUntil("body").css("border","5px solid red");
+				
+				// 返回第一个进行定位设置的祖先元素
+				// $("#itme").offsetParent().css("border","5px solid red");
+				
+				// 查找兄弟元素
+				// 下一个兄弟元素
+				// $(".itme").next().css("border","5px solid red");
+				// $(".itme").nextAll().css("border","5px solid red");
+				
+				// 查找p元素和.itme中间的兄弟元素
+				// $(".itme").nextUntil("p").css("border","5px solid red");
+				
+				// 上一个兄弟元素
+				// $(".itme").prev().css("border","5px solid red");
+				
+				// 不加参数，查找.itme所有的兄弟元素
+				// 加上参数,在.itme所有的兄弟元素中筛选出li元素
+				// $(".itme").siblings("li").css("border","5px solid red");
+				
+				// 从所有的祖先元素和本身里面找出第一个满足条件的
+				$(".itme").closest("li").css("border","5px solid red");
+				
+			});
+		</script>
+		
+	</body>
+</html>
